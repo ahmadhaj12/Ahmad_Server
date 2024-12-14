@@ -55,10 +55,5 @@ app.post("/login", (req, res) => {
   }
 });
 
-app.post("/sum", (req, res) => {
-  const { x, y } = req.body;
-  res.status(200).json({ resut: x + y });
-});
-
 
 module.exports = app;

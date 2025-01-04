@@ -22,38 +22,38 @@ app.get("/app", (req, res) => {
     age: 15,
   });
 }),
-  app.post("/whatsmyname", (req, res) => {
-    const { name, lastName } = req.body || { name: "", lastName: "" };
-    if (name !== "a" && lastName !== "b") {
-      res.status(403).json({
-        message: "please enter your name and lastName",
-      });
-    }
-    res.status(200).json({ auth: true });
-  });
+//   app.post("/whatsmyname", (req, res) => {
+//     const { name, lastName } = req.body || { name: "", lastName: "" };
+//     if (name !== "a" && lastName !== "b") {
+//       res.status(403).json({
+//         message: "please enter your name and lastName",
+//       });
+//     }
+//     res.status(200).json({ auth: true });
+//   });
 
-app.post("/agecheck", (req, res) => {
-  const { name, age } = req.body || { name: "", age: "" };
-  if (age >= 18) {
-    res.status(200).json({ message: "welcome " + name });
+// app.post("/agecheck", (req, res) => {
+//   const { name, age } = req.body || { name: "", age: "" };
+//   if (age >= 18) {
+//     res.status(200).json({ message: "welcome " + name });
 
-    return;
-  }
-  res.status(500).json({
-    message: name + " too young",
-  });
-});
+//     return;
+//   }
+//   res.status(500).json({
+//     message: name + " too young",
+//   });
+// });
 
-app.post("/login", (req, res) => {
-  const { name, password } = req.body || { name: "", password: "" };
-  if (password == "a1a8a2a1" && name == "ahmad") {
-    res.status(200).json({ message: "success" });
-  } else {
-    res.status(403).json({
-      message: "the name or password not correct",
-    });
-  }
-});
+// app.post("/login", (req, res) => {
+//   const { name, password } = req.body || { name: "", password: "" };
+//   if (password == "a1a8a2a1" && name == "ahmad") {
+//     res.status(200).json({ message: "success" });
+//   } else {
+//     res.status(403).json({
+//       message: "the name or password not correct",
+//     });
+//   }
+// });
 
 
 module.exports = app;

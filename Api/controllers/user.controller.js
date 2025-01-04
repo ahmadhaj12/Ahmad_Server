@@ -64,16 +64,24 @@ const deletUser = async (req, res) => {
   }
 };
 const login = async (req, res) => {
-  const { password, userName, phone } = req.body;
+  const { password, phone } = req.body;
+  console.log(password);
+
   try {
     const user = await USER_MODEL.findOne({
+      password,
       phone,
+    });
+    res.status(200).json({
+      success: user?true:false,
+      user: user,
+      message:user?"success":"not found",
     });
   } catch (err) {
     res.status(500).json({
-      success: true,
+      success: false,
       error: err,
-      message: error.message,
+      message: err.message,
     });
   }
 };

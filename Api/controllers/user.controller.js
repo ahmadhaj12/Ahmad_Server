@@ -51,7 +51,7 @@ const deletUser = async (req, res) => {
       userName: userName,
     });
     res.status(200).json({
-      success: true,
+      success: !!users,
       message: "user created",
       data: users,
     });

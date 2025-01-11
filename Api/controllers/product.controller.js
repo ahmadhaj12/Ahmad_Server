@@ -86,10 +86,29 @@ const UpdateProduct = async (req, res) => {
     });
   }
 };
+const findAllProduct = async (req,res) => {
+  try {
+    const products = await PRODUCT_MODEL.find({});
+    res.status(200).json({
+      success: true,
+      message: "product found",
+      data: products,
+    });
+  } catch (error) {
+    res.status(400).json({
+      success: false,
+      error: error.name,
+      message: error.message,
+    });
+  }
+};
+
+
 
 module.exports = {
   findProduct,
   deletProduct,
   createProduct,
   UpdateProduct,
+  findAllProduct,
 };

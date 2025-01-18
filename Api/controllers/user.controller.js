@@ -73,9 +73,9 @@ const login = async (req, res) => {
       phone,
     });
     res.status(200).json({
-      success: user?true:false,
+      success: user ? true : false,
       user: user,
-      message:user?"success":"not found",
+      message: user ? "success" : "not found",
     });
   } catch (err) {
     res.status(500).json({
@@ -86,17 +86,17 @@ const login = async (req, res) => {
   }
 };
 const UpdateUser = async (req, res) => {
-  const { phone, password } = req.body;
+  const { phone, password, userName } = req.body;
   try {
     const user = await USER_MODEL.findOneAndUpdate(
       { phone: phone },
-      { password: password },
+      { password: password, userName },
       { new: true }
     );
 
     res.status(200).json({
       success: true,
-      message: "user created",
+      message: "user updted!",
       data: user,
     });
   } catch (error) {
